@@ -44,16 +44,19 @@
   <button id="button">Roll Dice</button>
   <script src="ui.js"></script>
   <script>
+
+    var dobble1 = null
+    var dobble2 = null
+    var keepdobble1 = false
+    var keepdobble2 = false
+
       var dice = {
-        sides: 6,
-        roll: function () {
-            var randomNumber = Math.floor(Math.random() * this.sides) + 1;
-            return randomNumber;
+            sides: 6,
+            roll: function () {
+                var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+                return randomNumber;
+            }
         }
-        }
-
-
-
         //Prints dice roll to the page
 
         function printNumber(number) {
@@ -69,11 +72,29 @@
         var button = document.getElementById('button');
 
         button.onclick = function() {
-        var result = dice.roll();
-        var result2 = dice.roll();
-        printNumber(result);
-        printNumber2(result2);
+            if (!keepdobble1) {
+                var result = dice.roll();
+                dobble1 = result
+                keepdobble1 = false
+            }
+            if (!keepdobble2) {
+                var result2 = dice.roll();
+                dobble2 = result2
+                keepdobble2 = false
+            }
+            printNumber(dobble1);
+            printNumber2(dobble2);
         };
+        var dobble1 = document.getElementById("placeholder")
+        var dobble2 = document.getElementById("placeholder2")
+
+        dobble1.onclick = () => {
+            keepdobble1 = true
+        }
+        dobble2.onclick = () => {
+            keepdobble2 = true
+        }
+
   </script>
   <h1>Adten is winnen!</h1>
 </body>
