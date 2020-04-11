@@ -75,11 +75,13 @@
             if (!keepdobble1) {
                 var result = dice.roll();
                 dobble1 = result
+                console.log("unset double1")
                 keepdobble1 = false
             }
             if (!keepdobble2) {
                 var result2 = dice.roll();
                 dobble2 = result2
+                console.log("unset double2")
                 keepdobble2 = false
             }
             printNumber(dobble1);
