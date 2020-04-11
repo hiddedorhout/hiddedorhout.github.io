@@ -72,19 +72,26 @@
         var button = document.getElementById('button');
 
         button.onclick = function() {
-            if (!keepdobble1) {
-                console.log("unset double1")
-                keepdobble1 = false
+            if (!keepdobble1 && !keepdobble2) {
                 var result = dice.roll();
                 dobble1 = result
-                
+                console.log("unset double1")
+                keepdobble1 = false
             }
-            if (!keepdobble2) {
-                console.log("unset double2")
-                keepdobble2 = false
+            else if (!keepdobble1 && keepdobble2) {
                 var result2 = dice.roll();
                 dobble2 = result2
-            
+                console.log("unset double2")
+                keepdobble2 = false
+            }
+            else {
+                console.log("unset double2 +1")
+                keepdobble2 = false
+                keepdobble1 = false
+                var result2 = dice.roll();
+                var result = dice.roll();
+                dobble1 = result
+                dobble2 = result2
             }
             printNumber(dobble1);
             printNumber2(dobble2);
