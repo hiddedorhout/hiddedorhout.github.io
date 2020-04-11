@@ -30,7 +30,7 @@
 <body>
   <p id="placeholder">
   </p>
-  <p id="placeholder"></p>
+  <p id="placeholder2"></p>
   <button id="button">Roll Dice</button>
   <script src="ui.js"></script>
   <script>
@@ -51,11 +51,18 @@
         placeholder.innerHTML = number;
         }
 
+        function printNumber2(number) {
+        var placeholder = document.getElementById('placeholder2');
+        placeholder.innerHTML = number;
+        }
+
         var button = document.getElementById('button');
 
         button.onclick = function() {
         var result = dice.roll();
+        var result2 = dice.roll();
         printNumber(result);
+        printNumber2(result2);
         };
   </script>
   <h1>Hello</h1>
