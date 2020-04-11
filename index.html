@@ -72,7 +72,7 @@
         var button = document.getElementById('button');
 
         button.onclick = function() {
-            if (!keepdobble1 && !keepdobble2) {
+            if (keepdobble1 && !keepdobble2) {
                 var result = dice.roll();
                 dobble1 = result
                 console.log("unset double1")
